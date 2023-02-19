@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "lint": "eslint . --ext .ts,.tsx src",
-    "lint-fix": "eslint . --ext .ts,.tsx --fix --max-warnings=0 src",
+    "lint:fix": "npm run lint -- --fix --max-warnings=0 src",
     "test": "NODE_ENV=test jest --coverage",
+    "test:watch": "npm run test -- --watch",
+    "test:staged": "NODE_ENV=test jest --findRelatedTests",
     "build": "tsc -p tsconfig.prod.json a& vite build",
     "preview": "vite preview"
   },
