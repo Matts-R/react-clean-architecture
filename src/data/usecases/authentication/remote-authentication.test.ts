@@ -1,7 +1,7 @@
-import { HttpPostClientSpy } from '../../test/mock-http-client';
+import { HttpPostClientSpy } from '@/data/test/mock-http-client';
 import { RemoteAuthetication } from './remote-authentication';
+import { mockAuthentication } from '@/domain/test/mock-authentication';
 import { faker } from '@faker-js/faker';
-import { mockAuthentication } from '../../../domain/test/mock-authentication';
 
 type SutTypes = {
   sut: RemoteAuthetication;
@@ -33,6 +33,6 @@ describe('RemoteAuthentication', () => {
     const authenticationParams = mockAuthentication();
 
     await sut.auth(authenticationParams);
-    expect(httpPostClientSpy.body).toEquals(authenticationParams);
+    expect(httpPostClientSpy.body).toBe(authenticationParams);
   });
 });
